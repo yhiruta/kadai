@@ -36,8 +36,8 @@ Actorモデルの基本概念は以下引用のようになっています。
 なお引用した部分に出てきましたメッセージというのは、オブジェクト同士が情報交換を行い、オブジェクト間で受け渡される情報の事を指しています。
 
 ## scalaでの並行処理
-Javaで並行処理を行う場合`java.util.concurrent`となりますが、
-
-
-
+Javaで並行処理を行う場合`java.util.concurrent`を使用すると思いますが、scalaでは`akka.actor._`というクラスを使用して並行処理を行うことになります。  
+ただ、並列処理をしたいのであればakkaのActorを無理に使用する必要は無く、[Future](http://docs.scala-lang.org/ja/overviews/core/futures.html)や[Collection](http://docs.scala-lang.org/ja/overviews/collections/introduction.html)を用いれば実行は可能です。  
+では何時akkaのActorを用いるのか、それは前項の **Akkaとは** でも少し触れましたが、耐障害性が必要な場合となります。  
+Actorはお互い同じデータを共有することが無いため、たとえ一つのActorが何らかの不具合で止まってしまった場合でも、他のActorやシステムに影響を与えることなく再起動などの処理を行うことができます。  
 
